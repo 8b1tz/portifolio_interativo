@@ -195,3 +195,12 @@ game_portfolio/
 
 Sinta-se à vontade para contribuir com melhorias ou correções. Basta abrir um pull request ou issue no repositório.
 
+## Precisa: 
+- Fazer o comentário de interesse ser notificado no e-mail da pessoa do painel
+- Fazer o comentário da pessoa do painel ser notificado para a pessoa que demonstrou interesse
+- icone de sol e lua no botão de tema
+- bolinha com numeração na notificação do painel.
+- Regra de que a pessoa só pode enviar 1 interesse até ser respondido, para evitar SPAM
+- Ver alguma forma de verificar e-mail da pessoa registrada
+- Alguma forma de evitar BOTS ( capcha ou verificação )
+- colocar melhores projetos.
