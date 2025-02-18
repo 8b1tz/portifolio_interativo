@@ -1,0 +1,57 @@
+/* Fonte 'Press Start 2P' carregada no base.html */
+
+/* Temas claro x escuro */
+.light-theme {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --navbar-bg: #343a40;
+    --footer-bg: #343a40;
+  }
+  
+  .dark-theme {
+    --bg-color: #1c1b1b;
+    --text-color: #eee;
+    --card-bg: #2a2a2a;
+    --navbar-bg: #000;
+    --footer-bg: #000;
+  }
+  
+  body.light-theme,
+  body.dark-theme {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 14px;
+  }
+  
+  body {
+    background: url("../imgs/background.png") repeat;
+  }
+  
+  .navbar,
+  footer {
+    background-color: var(--navbar-bg) !important;
+  }
+  
+  .card {
+    background-color: var(--card-bg);
+    border: 2px solid #444;
+    border-radius: 0;
+  }
+  
+  .btn {
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 0;
+    text-transform: uppercase;
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      font-size: 12px;
+    }
+    .navbar-brand {
+      font-size: 12px;
+    }
+  }
+  

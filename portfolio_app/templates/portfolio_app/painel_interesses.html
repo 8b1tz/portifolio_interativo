@@ -1,0 +1,33 @@
+{% extends 'portfolio_app/base.html' %}
+{% block title %}Painel de Interesses{% endblock %}
+{% block content %}
+<h2>Painel de Interesses</h2>
+{% if novos > 0 %}
+  <p><strong>{{ novos }}</strong> mensagens novas</p>
+{% else %}
+  <p>Sem novas mensagens.</p>
+{% endif %}
+
+<div class="list-group mt-4">
+  {% for i in interesses %}
+    <div class="list-group-item mb-3">
+      <h5>{{ i.user.username }} - {{ i.data|date:"d/m/Y H:i" }} {% if not i.respondido %}(Novo){% endif %}</h5>
+      <p>{{ i.mensagem }}</p>
+      {% if interesse_foco and i.pk == interesse_foco.pk %}
+      <form method="POST" action="{% url 'responder_interesse' i.pk %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Resposta:</label>
+          <textarea name="resposta" rows="3" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Enviar Resposta</button>
+      </form>
+      {% else %}
+      <a href="{% url 'responder_interesse' i.pk %}" class="btn btn-secondary mt-2">Responder</a>
+      {% endif %}
+    </div>
+  {% empty %}
+    <p>Nenhum interesse registrado.</p>
+  {% endfor %}
+</div>
+{% endblock %}

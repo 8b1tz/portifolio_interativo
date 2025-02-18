@@ -1,0 +1,30 @@
+{% extends 'portfolio_app/base.html' %}
+{% block title %}Sobre{% endblock %}
+{% block content %}
+<h2 style="font-family: 'Press Start 2P', cursive;">Sobre Mim</h2>
+<div class="card p-4 mt-3">
+  <p><strong>Nome:</strong> Seu Nome</p>
+  <p><strong>E-mail:</strong> seunome@exemplo.com</p>
+  <p><strong>Local:</strong> Cidade, País</p>
+  <hr>
+  <h5>Resumo</h5>
+  <p>Sou Engenheira de Software com experiência em desenvolvimento web, Python, Django, etc.</p>
+</div>
+
+{% if user.is_authenticated and not user.is_superuser %}
+<hr>
+<h4>Demonstrar Interesse</h4>
+<form method="POST" action="{% url 'demonstrar_interesse' %}">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">Mensagem:</label>
+    <textarea name="mensagem" class="form-control" rows="3" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-warning">Enviar</button>
+</form>
+{% elif user.is_superuser %}
+<p>Admin não pode demonstrar interesse.</p>
+{% else %}
+<p>Faça <a href="{% url 'login' %}">login</a> para demonstrar interesse.</p>
+{% endif %}
+{% endblock %}

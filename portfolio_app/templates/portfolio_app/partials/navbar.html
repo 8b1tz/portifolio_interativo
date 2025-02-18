@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}" style="font-family: 'Press Start 2P', cursive;">
+      MeuGameDev
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:14px;">
+      <ul class="navbar-nav ms-auto align-items-center">
+        {% if user.is_authenticated %}
+          <li class="nav-item me-3 text-white">Olá, {{ user.username }}</li>
+        {% endif %}
+        <li class="nav-item me-2">
+          <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" href="{% url 'projetos' %}">Projetos</a>
+        </li>
+        {% if user.is_superuser %}
+          <li class="nav-item me-2">
+            <a class="nav-link" href="{% url 'listar_interesses' %}">Painel</a>
+          </li>
+        {% endif %}
+        <li class="nav-item me-3">
+          <button class="btn btn-outline-light" onclick="toggleTheme()">
+            <i id="themeIcon" class="fa-solid fa-toggle-on"></i>
+          </button>
+        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item me-2">
+            <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+          </li>
+        {% else %}
+          <li class="nav-item me-2">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="{% url 'register' %}">Registrar</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

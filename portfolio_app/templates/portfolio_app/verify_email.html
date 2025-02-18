@@ -1,0 +1,18 @@
+{% extends 'portfolio_app/base.html' %}
+{% block title %}Verificar E-mail{% endblock %}
+{% block content %}
+<h2 class="mb-3">Verificação de E-mail</h2>
+<p>Insira seu nome de usuário e o código que você recebeu por e-mail.</p>
+<form method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="username" class="form-label">Usuário</label>
+    <input type="text" name="username" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="code" class="form-label">Código de Verificação</label>
+    <input type="text" name="code" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-success">Verificar</button>
+</form>
+{% endblock %}

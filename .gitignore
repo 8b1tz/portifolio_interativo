@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django Migrations
+*/migrations/*
+
+# Env
+.env
+env/
+venv/
+.venv/
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+log/
+logs/
+
+# Byte-compiled
+*.swp
+*.swo
+
+# If using coverage or test output
+htmlcov/
+.coverage
+
+# If using static build outputs
+staticfiles/
+node_modules/
+
+# If building docs
+docs/_build/
